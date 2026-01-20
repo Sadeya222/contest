@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Label Sales - Amazon Accelerator</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #FFFFFF;
+            --secondary-bg: #F2F3F5;
+            --primary-text: #111317;
+            --secondary-text: #8C919A;
+            --accent-gold: #C9A24D;
+            --accent-muted: #A8873A;
+            --max-width: 1200px;
+            --font-main: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--primary-text);
+            background-color: var(--primary-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 36px;
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+
+        h4 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: var(--secondary-text);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-gold);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-muted);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-text);
+            border: 1px solid #E0E0E0;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .btn-text {
+            color: var(--primary-text);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 16px;
+        }
+
+        .btn-text:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Navigation */
+        nav {
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--primary-text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gold);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--primary-text);
+            font-weight: 500;
+            font-size: 15px;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background-color: var(--accent-gold);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--accent-muted);
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .shape-1 {
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            right: -100px;
+        }
+
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            bottom: -50px;
+            left: -50px;
+        }
+
+        .shape-3 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(var(--accent-gold) 1px, transparent 1px),
+                radial-gradient(var(--accent-gold) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            opacity: 0.02;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .hero-abstract {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            width: 45%;
+            height: 70%;
+            transform: translateY(-50%);
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-headline {
+            font-size: 56px;
+            margin-bottom: 24px;
+            color: var(--primary-text);
+            font-family: var(--font-main);
+            line-height: 1.1;
+        }
+
+        .hero-subheadline {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: var(--secondary-text);
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Hero Headline Options */
+        .headline-options {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .headline-option {
+            padding: 8px 16px;
+            border: 1px solid #E0E0E0;
+            background: transparent;
+            cursor: pointer;
+            font-size: 13px;
+            border-radius: 20px;
+            font-weight: 500;
+            color: var(--secondary-text);
+            transition: all 0.3s ease;
+        }
+
+        .headline-option:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .headline-option.active {
+            background: var(--accent-gold);
+            color: white;
+            border-color: var(--accent-gold);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--secondary-bg);
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .stats-abstract {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            bottom: 0;
+            left: 0;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item h3 {
+            font-size: 48px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+            font-family: var(--font-serif);
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary-text);
+            margin-bottom: 0;
+        }
+
+        /* Problem Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .problem-content {
+            max-width: 540px;
+        }
+
+        .problem-list {
+            margin: 32px 0;
+            list-style: none;
+        }
+
+        .problem-list li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 16px;
+            color: var(--primary-text);
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .problem-list li::before {
+            content: "•";
+            color: var(--accent-gold);
+            font-size: 28px;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .highlight-box {
+            background-color: #F9F9F9;
+            border-left: 3px solid var(--accent-gold);
+            padding: 24px;
+            margin-top: 32px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: var(--secondary-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-abstract {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            right: -5%;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            background-color: rgba(201, 162, 77, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .service-icon i {
+            font-size: 28px;
+            color: var(--accent-gold);
+        }
+
+        .service-header {
+            border-bottom: 1px solid #F0F0F0;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .service-desc {
+            font-size: 15px;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .service-meta {
+            margin-top: auto;
+        }
+
+        .pricing-note {
+            color: var(--accent-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .best-for {
+            color: var(--secondary-text);
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            text-align: center;
+        }
+
+        .case-study-abstract {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            bottom: 5%;
+            left: 5%;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .proof-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            margin: 60px 0;
+            background: white;
+            border: 1px solid #eee;
+            padding: 60px;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .proof-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-image: url('https://sfile.chatglm.cn/images-ppt/f2c31f2ade65.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .proof-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            width: 100%;
+        }
+
+        .proof-stat {
+            text-align: center;
+        }
+
+        .proof-stat .amount {
+            font-size: 72px;
+            font-weight: 700;
+            color: #ccc;
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .proof-stat.active .amount {
+            color: var(--accent-gold);
+        }
+
+        .proof-stat span {
+            font-size: 14px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .proof-arrow {
+            font-size: 48px;
+            color: var(--accent-gold);
+        }
+
+        .growth-badge {
+            background: var(--accent-gold);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+            display: inline-block;
+        }
+
+        .checklist {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: var(--primary-text);
+            font-weight: 500;
+            background: #F9F9F9;
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+
+        .check-item i {
+            color: var(--accent-gold);
+            font-size: 20px;
+        }
+
+        /* Who This Is For */
+        .who-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 40px;
+        }
+
+        .for-col h3 {
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+
+        .for-list {
+            list-style: none;
+        }
+
+        .for-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 16px;
+            color: var(--primary-text);
+        }
+
+        .for-col.yes li::before {
+            content: "check_circle";
+            font-family: 'Material Icons';
+            color: var(--accent-gold);
+            font-size: 24px;
+        }
+
+        .for-col.no li::before {
+            content: "cancel";
+            font-family: 'Material Icons';
+            color: #ccc;
+            font-size: 24px;
+        }
+
+        /* Offer Section */
+        .offer-section {
+            background-color: #FFFCF5;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-abstract {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: -10%;
+            right: -10%;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .offer-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .offer-details {
+            background: white;
+            padding: 48px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .offer-details ul {
+            list-style: none;
+            margin: 24px 0 32px;
+        }
+
+        .offer-details li {
+            margin-bottom: 16px;
+            padding-left: 36px;
+            position: relative;
+        }
+
+        .offer-details li::before {
+            content: "check";
+            font-family: 'Material Icons';
+            color: var(--accent-gold);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 24px;
+        }
+
+        .risk-reversal {
+            font-style: italic;
+            color: var(--secondary-text);
+            margin-top: 32px;
+            font-size: 15px;
+            padding: 16px;
+            background: #F9F9F9;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .scarcity-note {
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--secondary-text);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111317;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            color: white;
+            margin-bottom: 16px;
+            font-family: var(--font-serif);
+            font-size: 24px;
+        }
+
+        .footer-logo span {
+            color: var(--accent-gold);
+        }
+
+        .footer-info {
+            color: #8C919A;
+            margin-bottom: 24px;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #555;
+            border-top: 1px solid #222;
+            padding-top: 32px;
+            margin-top: 32px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 42px;
+            }
+
+            .hero-headline {
+                font-size: 42px;
+            }
+
+            .problem-grid,
+            .who-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-headline {
+                font-size: 36px;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .proof-visual {
+                flex-direction: column;
+                gap: 30px;
+                padding: 40px 20px;
+            }
+
+            .proof-arrow {
+                transform: rotate(90deg);
+            }
+
+            .checklist {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .offer-details {
+                padding: 32px 24px;
+            }
+        }
+
+        /* Fade-in animation for scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <span style="font-size: 24px; font-weight: 700;">G</span>
+                </div>
+                Gold Label <span>Sales</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Services</a>
+                <a href="#" class="nav-link">Results</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Contact</a>
+                <a href="#offer" class="nav-cta">Free Amazon Audit</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="material-icons">menu</i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-shape shape-1"></div>
+        <div class="hero-bg-shape shape-2"></div>
+        <div class="shape-3"></div>
+        <img src="https://sfile.chatglm.cn/images-ppt/f2c31f2ade65.jpg" alt="Abstract geometric shapes" class="hero-abstract">
+
+        <div class="container hero-content">
+            <!-- Hero Headline Options -->
+            <div class="headline-options">
+                <button class="headline-option active" data-option="A">Option A</button>
+                <button class="headline-option" data-option="B">Option B</button>
+                <button class="headline-option" data-option="C">Option C</button>
+            </div>
+
+            <h1 id="hero-title" class="hero-headline">We Run Amazon For Brands That Want Nothing To Do With Amazon.</h1>
+
+            <p id="hero-sub" class="hero-subheadline">See the repeatable system we've used to scale 16 brands - including one from $40k to $280k/month.</p>
+
+            <div class="hero-cta-group">
+                <a href="#offer" class="btn btn-primary">Get My Free Audit</a>
+                <a href="#proof" class="btn-text">See How We Did It <i class="material-icons" style="font-size: 18px;">arrow_forward</i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <img src="https://sfile.chatglm.cn/images-ppt/045ad62d1e5d.jpg" alt="Abstract geometric shapes" class="stats-abstract">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10 Years</h3>
+                    <p>Exposed To Every Amazon Problem</p>
+                </div>
+                <div class="stat-item">
+                    <h3>16+</h3>
+                    <p>Brands Under Management</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$70M+</h3>
+                    <p>Sold on Amazon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="section">
+        <div class="container">
+            <span class="label">THE PROBLEM</span>
+            <div class="problem-grid">
+                <div class="problem-content">
+                    <h2>Your Amazon Channel is Bleeding Money. Here's Why.</h2>
+                    <p>You built a great brand. But Amazon? It's chaos. Unauthorized sellers are undercutting your pricing. You're losing the buy box on your own products. Your listings are a mess. And every month, you're leaving tens of thousands on the table.</p>
+
+                    <ul class="problem-list">
+                        <li>Unauthorized 3P sellers destroying your margins</li>
+                        <li>Losing the buy box on your own products</li>
+                        <li>Listings that don't convert (or don't exist)</li>
+                        <li>Pricing chaos across channels</li>
+                        <li>No control over your brand on the world's biggest marketplace</li>
+                        <li>Months of revenue lost while you try to figure it out</li>
+                    </ul>
+                </div>
+                <div class="problem-sidebar">
+                    <div class="highlight-box">
+                        Sound familiar? Here's what we do about it.
+                    </div>
+                    <!-- Abstract graphic placeholder - CSS Shapes -->
+                    <div style="margin-top: 40px; height: 300px; background: #F2F3F5; border-radius: 8px; position: relative; overflow: hidden;">
+                        <img src="https://sfile.chatglm.cn/images-ppt/045ad62d1e5d.jpg" alt="Abstract geometric shapes" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.1;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services-section">
+        <img src="https://sfile.chatglm.cn/images-ppt/f2c31f2ade65.jpg" alt="Abstract geometric shapes" class="services-abstract">
+        <div class="container">
+            <span class="label">THREE WAYS TO FIX IT</span>
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="material-icons">business_center</i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Brand Management</h3>
+                    </div>
+                    <p class="service-desc">Keep Your Account. We Run Everything Else. You stay the seller of record. We take over listings, SEO, A+ content, PPC, catalog cleanup, and MAP enforcement.</p>
+                    <div class="service-meta">
+                        <span class="pricing-note">10-15% of Amazon Revenue</span>
+                        <p class="best-for">Best for: Brands doing $50k+/month who want expert execution without giving up their account.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="material-icons">trending_up</i>
+                    </div>
+                    <div class="service-header">
+                        <h3>Amazon Accelerator</h3>
+                    </div>
+                    <p class="service-desc">We Buy. We Sell. You Collect Checks. We purchase your inventory at wholesale and become your exclusive Amazon seller. We own the pricing, the buy box, and the growth.</p>
+                    <div class="service-meta">
+                        <span class="pricing-note">Wholesale Partnership</span>
+                        <p class="best-for">Best for: Brands who want Amazon revenue without Amazon problems.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="material-icons">build</i>
+                    </div>
+                    <div class="service-header">
+                        <h3>One-Time Fix</h3>
+                    </div>
+                    <p class="service-desc">Done-For-You Amazon Rebuild. Full listing overhaul, brand registry, ASIN consolidation, PPC foundation, and a strategic playbook. We fix it, hand it back.</p>
+                    <div class="service-meta">
+                        <span class="pricing-note">Starting at $14,999</span>
+                        <p class="best-for">Best for: Brands who have internal resources but need expert setup.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study -->
+    <section id="proof" class="section case-study">
+        <img src="https://sfile.chatglm.cn/images-ppt/045ad62d1e5d.jpg" alt="Abstract geometric shapes" class="case-study-abstract">
+        <div class="container">
+            <span class="label">PROOF</span>
+            <h2>$40k to $280k/Month. Here's Exactly What Changed.</h2>
+
+            <div class="proof-visual">
+                <div class="proof-bg"></div>
+                <div class="proof-content">
+                    <div class="proof-stat">
+                        <span class="amount">$40k</span>
+                        <span>per month</span>
+                    </div>
+                    <i class="material-icons proof-arrow">trending_flat</i>
+                    <div class="proof-stat active">
+                        <span class="amount">$280k</span>
+                        <span>per month</span>
+                        <div class="growth-badge">7x Growth</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checklist">
+                <div class="check-item"><i class="material-icons">check</i> Rebuilt 47 product listings from scratch</div>
+                <div class="check-item"><i class="material-icons">check</i> Removed 12 unauthorized sellers</div>
+                <div class="check-item"><i class="material-icons">check</i> Took buy box ownership from 34% to 98%</div>
+                <div class="check-item"><i class="material-icons">check</i> Implemented proper FBA strategy</div>
+                <div class="check-item"><i class="material-icons">check</i> Restructured PPC to 22% ACoS</div>
+            </div>
+
+            <a href="#" class="btn btn-secondary">See The Full Breakdown</a>
+        </div>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="section">
+        <div class="container">
+            <span class="label">IS THIS YOU?</span>
+            <h2 style="margin-bottom: 40px;">This is NOT for Everyone.</h2>
+
+            <div class="who-grid">
+                <div class="for-col yes">
+                    <h3>This is for you if:</h3>
+                    <ul class="for-list">
+                        <li>Your products are already on Amazon (even if it's a mess)</li>
+                        <li>You're doing $25k+/month in revenue somewhere</li>
+                        <li>You're tired of fighting unauthorized sellers</li>
+                        <li>You want to grow Amazon without babysitting it</li>
+                        <li>You're ready to make a decision, not "think about it"</li>
+                    </ul>
+                </div>
+                <div class="for-col no">
+                    <h3>This is NOT for you if:</h3>
+                    <ul class="for-list">
+                        <li>You're looking for the cheapest option</li>
+                        <li>You won't enforce MAP pricing</li>
+                        <li>You want to "just run some ads"</li>
+                        <li>Amazon isn't a real priority for your business</li>
+                        <li>You need to "run it by" 6 people before deciding</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Offer -->
+    <section id="offer" class="section offer-section">
+        <img src="https://sfile.chatglm.cn/images-ppt/f2c31f2ade65.jpg" alt="Abstract geometric shapes" class="offer-abstract">
+        <div class="container offer-container">
+            <span class="label">FREE</span>
+            <h2>Get Your Free Amazon Channel Audit <span style="font-size: 24px; font-weight: 400; color: var(--secondary-text);">(Normally $599)</span></h2>
+
+            <div class="offer-details">
+                <p>What they get:</p>
+                <ul>
+                    <li>Complete audit of your current Amazon presence</li>
+                    <li>Identification of every revenue leak</li>
+                    <li>Specific recommendations (whether you work with us or not)</li>
+                    <li>No pitch. No pressure. Just answers.</li>
+                </ul>
+                <p class="risk-reversal">"If we can't find at least $10,000/year in missed revenue, we'll tell you. And we'll tell you exactly what you should do instead - even if that's nothing."</p>
+            </div>
+
+            <a href="#" class="btn btn-primary" style="padding: 16px 32px; font-size: 18px;">Request Your Free Audit</a>
+            <p class="scarcity-note">We audit 4 brands per month. If we're booked, we'll let you know.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Gold Label <span>Sales</span></div>
+            <p class="footer-info">10 Years. 16 Brands. $70M+ in Amazon Revenue Managed.</p>
+            <a href="mailto:contact@goldlabelsales.com" style="color: white; text-decoration: none;">contact@goldlabelsales.com</a>
+            <div class="copyright">
+                &copy; 2026 Gold Label Sales. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hero Headline Toggle Script
+        const headlines = {
+            'A': "We Run Amazon For Brands That Want Nothing To Do With Amazon.",
+            'B': "We Run Amazon For Brands That Hate Running Amazon.",
+            'C': "Unauthorized Sellers. Pricing Chaos. Revenue Leaks. We Fix All of It."
+        };
+
+        // Function to handle headline toggle
+        function setHeadline(option) {
+            // Update text
+            const titleEl = document.getElementById('hero-title');
+            titleEl.style.opacity = 0;
+            
+            setTimeout(() => {
+                titleEl.textContent = headlines[option];
+                titleEl.style.opacity = 1;
+            }, 200);
+
+            // Update buttons
+            document.querySelectorAll('.headline-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.headline-option[data-option="${option}"]`).classList.add('active');
+        }
+
+        // Add event listeners to headline options
+        document.querySelectorAll('.headline-option').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const option = this.getAttribute('data-option');
+                setHeadline(option);
+            });
+        });
+
+        // Add transition for title
+        document.getElementById('hero-title').style.transition = 'opacity 0.3s ease';
+
+        // Scroll fade-in animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Add fade-in class to sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('fade-in');
+                observer.observe(section);
+            });
+
+            document.querySelectorAll('.stats-bar').forEach(section => {
+                section.classList.add('fade-in');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
